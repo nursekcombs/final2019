@@ -1,7 +1,7 @@
 ---
 title: "Aides Drug"
-author: "Put your name here!"
-date: "put the date here"
+author: "Kandis Combs!"
+date: "11/19/19"
 output: html_document
 ---
 
@@ -9,6 +9,10 @@ output: html_document
 require(tidyverse)
 require(tigerstats)
 avast <-read.csv(file="avastivironal.csv",header=TRUE)
+avastf <- filter(avast,sex=="gal")
+avastb <-filter(avast,sex=="guy")
+avastG <-filter(avast,LGBTQ=="gay")
+avastd <-filter(avast,DrugUser=="yes")
 ```
 
 # Introduction
@@ -31,14 +35,30 @@ A new  preventative aides (abacavirinol) is under test in clinical trials. Analy
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
+```{r}
+barchartGC(~infected + treatment,data=avast,type="percent")
+```
+
+
+
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=avast)
+rowPerc(table1)
+colPerc(table1)
+```
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
 # Discussion and Conclusion
 
