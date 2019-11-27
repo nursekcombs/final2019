@@ -1,5 +1,5 @@
 ---
-title: "Aides Drug"
+title: "Everybody"
 author: "Kandis Combs!"
 date: "11/19/19"
 output: html_document
@@ -19,11 +19,13 @@ avastd <-filter(avast,DrugUser=="yes")
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?.  If you skimp in this section expect to be marked down in your grade. Paint a picture of the project a couple of paragraphs is expected!-->
 
-A new  preventative aides (abacavirinol) is under test in clinical trials. Analyze the effectiveness of this drug across the board. Consider population subgroups by gender, drug use, and sexual orientation. Finish this!
+A new  preventative aides (abacavirinol) is under test in clinical trials. I will analyze the effectiveness of this drug across the board using different sex and gender. I will Consider population subgroups by gender, drug use, and sexual orientation.The data was imported from the abacavironal file and broken up into 5 different sections. 
 
 # Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
+
+I will use barcharts, tables and chisq.test to analyysis the data. I have 5 different sections to anlayze together and individually. 
 
 #Results
 
@@ -38,7 +40,7 @@ A new  preventative aides (abacavirinol) is under test in clinical trials. Analy
 ```{r}
 barchartGC(~infected + treatment,data=avast,type="percent")
 ```
-
+This barchart shows that 40% of the people that used this drug still got aids and 59 % that got the placebo got aids. It looks as if the drug is working for the girls.
 
 
 ### Numerical Descriptive Results
@@ -59,7 +61,8 @@ chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
+Because the p value is 2.333e-o7. I fail to reject the null hypothesis
 
 # Discussion and Conclusion
 
-<!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+<!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!--> There is a relationship betwwen taking the drug and not taking the drug and getting aid. 40% of the gals that took the drug still got aides but almost 60 % of the gals that didnt get the drug but took the placebo got aids and almost the exact same amount that didnt get aids took neither the drug or placebo.
