@@ -43,7 +43,7 @@ $H_1$: there is a relationship between getting aides and taking abacavirinol
 ```{r}
 barchartGC(~infected + treatment,data=avastb,type="percent")
 ```
-
+40% of the guys tha t took the drug still ended up with aides and 58% of the guys that got the placebo did not ened up with aides. The drug appears to not be working.
 
 
 ### Numerical Descriptive Results
@@ -55,7 +55,7 @@ table1 <- xtabs(~infected + treatment, data=avastb)
 rowPerc(table1)
 colPerc(table1)
 ```
-
+The drug is not working because at least 40% of the guys that took the drug got aides
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
